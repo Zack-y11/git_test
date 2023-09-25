@@ -15,7 +15,7 @@ function PlayRound (eleccionJugador, eleccionComputadora){
         (eleccionJugador === 'tijeras') && (eleccionComputadora === 'papel') ||
         (eleccionJugador === 'papel') && (eleccionComputadora === 'piedra')
     ){
-        return 'Ganaste!'
+        return 'Ganaste'
     }else {
         return 'Perdiste!'
     }
@@ -25,7 +25,7 @@ function juego (){
     puntajeJugador = 0
     puntajeComputadora = 0
 
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 1; i++){
         const eleccionJugador = jugadorChoise()
         console.log('Tu eleccion', jugadorChoise())
         eleccionCompu = opcionComputadora()
@@ -48,19 +48,55 @@ function juego (){
 }
 
 //LLAMAR A LA FUNCION
-const jugador = document.getElementById('jugador')
-const botonJugador = document.getElementById('btnPlayer')
-botonJugador.addEventListener('click', ()=>{
-    const valor = jugador.value
-    console.log(valor)
-})
+// Obtener elementos del DOM
+const juegoForm = document.getElementById("juegoForm");
+const jugarBtn = document.getElementById("jugarBtn");
+const resultado = document.getElementById("resultado");
 
-function jugadorChoise (){
-    botonJugador.addEventListener('click', ()=>{
-        const valor = jugador.value
-    })
-    console.log(valor)  
+//Muestra la eleccion de los jugadores
+const imagenPlayer = document.getElementById("jugador")
+const imagenCompu = document.getElementById("computadora")
+function seleccionarImagen(opcion,elemento){
+    if (opcion === 'piedra'){
+        elemento.src = "./img/piedra.png"
+    }else if (opcion === 'papel'){
+        elemento.src = "./img/papel.png"       
+    }else if (opcion === 'tijeras'){
+        elemento.src = "./img/tijeras.png"
+    }
 }
-if (jugador.value === ''){
+// Función para jugar el juego
+function jugar() {
+    // Obtener la elección del usuario
+    const eleccionUsuario = document.querySelector('input[name="eleccion"]:checked');
+    const imagenJugador = document.getElementById('jugador')
+    const imagenCompu = document.getElementById('computadora')
 
+    if (eleccionUsuario) {
+        eleccionCompu = opcionComputadora().toLocaleLowerCase()
+        seleccionarImagen(eleccionCompu,imagenCompu)
+        const eleccionUsuarioValue = eleccionUsuario.value.toLowerCase();
+        seleccionarImagen(eleccionUsuarioValue,imagenPlayer)
+        
+        if (eleccionUsuarioValue === eleccionCompu){
+            resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: EMPATE`
+        }else if (
+            (eleccionUsuarioValue === 'piedra') && (eleccionCompu === 'tijeras')||
+            (eleccionUsuarioValue === 'tijeras') && (eleccionCompu === 'papel')||
+            (eleccionUsuarioValue === 'papel') && (eleccionCompu === 'piedra')
+
+        ){
+            resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: GANASTE;`
+            return 'ganaste'
+
+        }else{
+            resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: PERDISTE`
+            return 'perdiste'
+        }
+    } else {
+        resultado.textContent = "Por favor, elige una opción antes de jugar.";
+    }
 }
+// Agregar evento click al botón "Jugar"
+jugarBtn.addEventListener("click", jugar);
+
