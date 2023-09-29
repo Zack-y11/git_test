@@ -47,7 +47,7 @@ function juego (){
     }
 }
 
-//LLAMAR A LA FUNCION
+//Version2
 // Obtener elementos del DOM
 const juegoForm = document.getElementById("juegoForm");
 const jugarBtn = document.getElementById("jugarBtn");
@@ -79,6 +79,7 @@ function jugar() {
         seleccionarImagen(eleccionUsuarioValue,imagenPlayer)
         
         if (eleccionUsuarioValue === eleccionCompu){
+            anuncio.textContent = "No lo haces mal"
             resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: EMPATE`
         }else if (
             (eleccionUsuarioValue === 'piedra') && (eleccionCompu === 'tijeras')||
@@ -89,12 +90,14 @@ function jugar() {
             resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: GANASTE;`
             contadorClics++
             spanContadorPlayer.textContent = contadorClics
+            anuncio.textContent = "Bien hecho, enseñale como se juega"
             return 'ganaste'
 
         }else{
             resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: PERDISTE`
             contadorClics++
             spanContadorCompu.textContent = contadorClics
+            anuncio.textContent = 'La maquina esta ganando, la dejaras?'
             return 'perdiste'
         }
     } else {
@@ -105,5 +108,6 @@ function jugar() {
 jugarBtn.addEventListener("click", jugar);
 const spanContadorPlayer = document.getElementById('playercount')
 const spanContadorCompu = document.getElementById('compucount')
+const anuncio = document.getElementById('frase')
 let contadorClics = 0
 
