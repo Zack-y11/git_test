@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Keania One', cursive;
+}
+
+.contenido {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+#juegoForm{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 20px;
+}
+label{
+    padding-right: 20px;
+}
+#elecciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 30px;
+}
+img {
+    width: 200px;
+    height: 200px;
+    margin-left: 50px;
+}
+
+#resultado{
+    padding-top: 20px;
+}
+
+button{
+    padding: 10px;
+    background-color: blue;
+    border-radius: 10%;
+}
+
+@keyframes tituloAnimado{
+    0%{color: deepskyblue;}
+    25%{color: blueviolet;}
+    50%{color:tomato;}
+    75%{color: crimson;}
+    100%{color: darkslategray;}
+}
+
+h1{
+    animation: tituloAnimado 5s infinite
+}

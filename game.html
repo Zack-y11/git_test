@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijeras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenido">
+        <h1>Juego de Piedra, Papel o Tijeras</h1>
+        <p>Elige tu jugada:</p>
+        
+        <!-- Formulario con botones de opción -->
+        <form id="juegoForm">
+            <input type="radio" id="piedra" name="eleccion" value="piedra">
+            <label for="piedra">Piedra</label><br>
+            
+            <input type="radio" id="papel" name="eleccion" value="papel">
+            <label for="papel">Papel</label><br>
+            
+            <input type="radio" id="tijeras" name="eleccion" value="tijeras">
+            <label for="tijeras">Tijeras</label><br>
+            
+            <button type="button" id="jugarBtn">Jugar</button>
+        </form>
+        <div id=elecciones>
+            <div>
+                <h4>Usted eligio:</h4>
+                <img src="" alt="" id="jugador">
+                <div>PUNTAJE: <span id="playercount">0</span></div>
+            </div>
+            <div>
+                <h4>La computadora elegio: </h4>                
+                <img src="" alt="" id="computadora">
+                <div>PUNTAJE: <span id="compucount">0</span></div>
+            </div>
+            
+            
+        </div>
+        
+        <!-- Resultado del juego -->
+        <div id="resultado">resultado</div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
