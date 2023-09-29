@@ -87,16 +87,23 @@ function jugar() {
 
         ){
             resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: GANASTE;`
+            contadorClics++
+            spanContadorPlayer.textContent = contadorClics
             return 'ganaste'
 
         }else{
             resultado.textContent = `Tu elección: ${eleccionUsuarioValue}, Resultado: PERDISTE`
+            contadorClics++
+            spanContadorCompu.textContent = contadorClics
             return 'perdiste'
         }
     } else {
-        resultado.textContent = "Por favor, elige una opción antes de jugar.";
+        resultado.textContent = `Por favor, elige una opción antes de jugar.`;
     }
 }
 // Agregar evento click al botón "Jugar"
 jugarBtn.addEventListener("click", jugar);
+const spanContadorPlayer = document.getElementById('playercount')
+const spanContadorCompu = document.getElementById('compucount')
+let contadorClics = 0
 
